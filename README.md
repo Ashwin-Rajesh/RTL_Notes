@@ -6,7 +6,6 @@ Notes I made on RTL design and verification. Currently has verilog, system veril
 
 1) [Verilog](verilog/readme.md)
 2) [System verilog](system_verilog/readme.md)
-3) [VHDL](vhdl/readme.md)
 
 ---
 ## Techniques
