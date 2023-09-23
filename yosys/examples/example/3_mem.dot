@@ -1,0 +1,18 @@
+digraph "example" {
+label="example";
+rankdir="LR";
+remincross=true;
+n2 [ shape=octagon, label="a", color="black", fontcolor="black" ];
+n3 [ shape=octagon, label="b", color="black", fontcolor="black" ];
+n4 [ shape=octagon, label="c", color="black", fontcolor="black" ];
+n5 [ shape=octagon, label="o", color="black", fontcolor="black" ];
+{ rank="source"; n2; n3; n4;}
+{ rank="sink"; n5;}
+c9 [ shape=record, label="{{<p6> A|<p7> B}|$1\n$add|{<p8> Y}}" ];
+c10 [ shape=record, label="{{<p6> A|<p7> B}|$2\n$add|{<p8> Y}}" ];
+c9:p8:e -> c10:p6:w [color="black", style="setlinewidth(3)", label="<2>"];
+n2:e -> c9:p6:w [color="black", style="setlinewidth(3)", label="<2>"];
+n3:e -> c9:p7:w [color="black", style="setlinewidth(3)", label="<2>"];
+n4:e -> c10:p7:w [color="black", label=""];
+c10:p8:e -> n5:w [color="black", style="setlinewidth(3)", label="<2>"];
+}
