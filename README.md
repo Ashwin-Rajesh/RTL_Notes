@@ -11,3 +11,9 @@ Notes I made on RTL design and verification. Currently has verilog, system veril
 ## Techniques
 
 1) [Formal verification](formal_verification/readme.md)
+
+---
+
+## Tools
+
+1) [Yosys](yosys/readme.md)
