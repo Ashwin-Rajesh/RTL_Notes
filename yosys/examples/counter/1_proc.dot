@@ -1,0 +1,42 @@
+digraph "counter" {
+label="counter";
+rankdir="LR";
+remincross=true;
+n8 [ shape=octagon, label="count", color="black", fontcolor="black" ];
+n9 [ shape=octagon, label="en", color="black", fontcolor="black" ];
+n10 [ shape=octagon, label="nrst", color="black", fontcolor="black" ];
+n11 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
+{ rank="source"; n10; n11; n9;}
+{ rank="sink"; n8;}
+c15 [ shape=record, label="{{<p12> CLK|<p13> D}|$9\n$dff|{<p14> Q}}" ];
+v0 [ label="8'00000000" ];
+c20 [ shape=record, label="{{<p16> A|<p17> B|<p18> S}|$7\n$mux|{<p19> Y}}" ];
+c21 [ shape=record, label="{{<p16> A|<p17> B|<p18> S}|$4\n$mux|{<p19> Y}}" ];
+x1 [ shape=record, style=rounded, label="<s0> 7:0 - 7:0 " ];
+x1:e -> c21:p17:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", style="setlinewidth(3)", label="<8>"];
+v2 [ label="1" ];
+c22 [ shape=record, label="{{<p16> A|<p17> B}|$3\n$add|{<p19> Y}}" ];
+c23 [ shape=record, label="{{<p16> A}|$2\n$not|{<p19> Y}}" ];
+x3 [shape=box, style=rounded, label="BUF"];
+x4 [shape=box, style=rounded, label="BUF"];
+x5 [shape=box, style=rounded, label="BUF"];
+n1 [ shape=point ];
+c20:p19:e -> n1:w [color="black", style="setlinewidth(3)", label="<8>"];
+n1:e -> c15:p13:w [color="black", style="setlinewidth(3)", label="<8>"];
+n1:e -> x5:w:w [color="black", style="setlinewidth(3)", label="<8>"];
+n10:e -> c23:p16:w [color="black", label=""];
+n11:e -> c15:p12:w [color="black", label=""];
+x4:e:e -> c20:p18:w [color="black", label=""];
+c21:p19:e -> c20:p16:w [color="black", style="setlinewidth(3)", label="<8>"];
+x3:e:e -> c21:p18:w [color="black", label=""];
+c22:p19:e -> x1:s0:w [color="black", style="setlinewidth(3)", label="<32>"];
+c23:p19:e -> x4:w:w [color="black", label=""];
+n7 [ shape=diamond, label="$0\\count[7:0]" ];
+x5:e:e -> n7:w [color="black", style="setlinewidth(3)", label="<8>"];
+c15:p14:e -> n8:w [color="black", style="setlinewidth(3)", label="<8>"];
+n8:e -> c21:p16:w [color="black", style="setlinewidth(3)", label="<8>"];
+n8:e -> c22:p16:w [color="black", style="setlinewidth(3)", label="<8>"];
+n9:e -> x3:w:w [color="black", label=""];
+v0:e -> c20:p17:w [color="black", style="setlinewidth(3)", label="<8>"];
+v2:e -> c22:p17:w [color="black", style="setlinewidth(3)", label="<32>"];
+}

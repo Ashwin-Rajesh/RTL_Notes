@@ -1,0 +1,25 @@
+# Read input
+read_verilog counter.v
+# Show input
+show -width -stretch -format svg -prefix ./0_inp
+
+# Convert behavioral level to RTL
+proc
+# Show RTL output
+show -width -stretch -format svg -prefix ./1_proc
+
+# Perform common optimizations
+opt
+# Show output
+show -width -stretch -format svg -prefix ./2_opt
+
+# memory
+memory
+opt
+show -width -stretch -format svg -prefix ./3_mem
+
+# techmap
+techmap
+opt
+show -width -stretch -format svg -prefix ./4_techmap
+

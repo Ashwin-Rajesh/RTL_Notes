@@ -1,0 +1,12 @@
+# Read input
+read_verilog example.v
+
+# Convert behavioral level to RTL
+proc
+
+# Perform common optimizations
+opt
+
+# Substitution
+extract -map nine_out.v
+show -width -stretch -format svg -prefix ./extract_mult

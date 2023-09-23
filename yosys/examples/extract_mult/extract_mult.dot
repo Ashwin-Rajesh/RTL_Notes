@@ -1,0 +1,28 @@
+digraph "mult" {
+label="mult";
+rankdir="LR";
+remincross=true;
+n2 [ shape=octagon, label="a", color="black", fontcolor="black" ];
+n3 [ shape=octagon, label="b", color="black", fontcolor="black" ];
+n4 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
+n5 [ shape=diamond, label="inp_a", color="black", fontcolor="black" ];
+n6 [ shape=diamond, label="inp_b", color="black", fontcolor="black" ];
+n7 [ shape=octagon, label="out", color="black", fontcolor="black" ];
+{ rank="source"; n2; n3; n4;}
+{ rank="sink"; n7;}
+c11 [ shape=record, label="{{<p8> A|<p9> B}|$2\n$mul|{<p10> Y}}" ];
+c15 [ shape=record, label="{{<p12> CLK|<p13> D}|$3\n$dff|{<p14> Q}}" ];
+c16 [ shape=record, label="{{<p12> CLK|<p13> D}|$4\n$dff|{<p14> Q}}" ];
+c17 [ shape=record, label="{{<p12> CLK|<p13> D}|$5\n$dff|{<p14> Q}}" ];
+c11:p10:e -> c17:p13:w [color="black", style="setlinewidth(3)", label="<16>"];
+n2:e -> c15:p13:w [color="black", style="setlinewidth(3)", label="<16>"];
+n3:e -> c16:p13:w [color="black", style="setlinewidth(3)", label="<16>"];
+n4:e -> c15:p12:w [color="black", label=""];
+n4:e -> c16:p12:w [color="black", label=""];
+n4:e -> c17:p12:w [color="black", label=""];
+c15:p14:e -> n5:w [color="black", style="setlinewidth(3)", label="<16>"];
+n5:e -> c11:p8:w [color="black", style="setlinewidth(3)", label="<16>"];
+c16:p14:e -> n6:w [color="black", style="setlinewidth(3)", label="<16>"];
+n6:e -> c11:p9:w [color="black", style="setlinewidth(3)", label="<16>"];
+c17:p14:e -> n7:w [color="black", style="setlinewidth(3)", label="<16>"];
+}

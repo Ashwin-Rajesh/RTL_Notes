@@ -1,0 +1,16 @@
+# Read input
+read_verilog example.v
+
+# Convert behavioral level to RTL
+proc
+
+# Perform common optimizations
+opt
+
+# Map to CMOS logic
+techmap
+abc -g cmos2
+opt
+
+# Substitution
+extract -mine mine.il
